@@ -94,10 +94,8 @@
                   <div class="card-body">
                     <h5 class="card-title fw-bolder">Registration</h5>
                  
-                       <p class="mb-0 font-italic mx-2"> Online (ISTAC Members only) - ₹500</p>
-                       <p class="mb-0 font-italic mx-2"> Symposium In-person  - ₹1000</p>
-                       <p class="mb-0 font-italic mx-2"> Workshop (Only)  - ₹3500</p>
-                       <p class="mb-0 font-italic mx-2"> Symposium & Workshop ₹4500 - (+18% GST)</p>
+                       <p class="mb-0 font-italic mx-2" *ngFor="let fee of event.fee"> {{fee.desc}}</p>
+                     
                        <!-- <p class="mb-0"> Register at <a href="#">www.traumasurg.com</a></p> -->
           
                   </div>
@@ -106,7 +104,7 @@
               </div>
             </div>
 
-            <a href="#" class="btn btn-primary btn-round float-end">Register</a>
+            <button (click)="register(event)"  class="btn btn-primary btn-round float-end">Register</button>
           </div>
         </div>
       </div>
