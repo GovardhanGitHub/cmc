@@ -12,24 +12,23 @@ import { DataService } from "src/app/data.service";
  * Pricing component
  */
 export class PricingComponent implements OnInit {
-  constructor(private router: Router ,private dataService : DataService) { }
+  constructor(private router: Router, private dataService: DataService) {}
 
-  events = []
+  events = [];
+  doctors = [];
   ngOnInit(): void {
-this.events = this.dataService.events 
-
+    this.events = this.dataService.events;
+    this.doctors = this.events[0].doctors;
   }
-
-
 
   team = [
     {
-      image : 'sukria.png',
+      image: "sukria.png",
       name: "Dr. Sukria Nayak",
       dept: "Head, Department of Trauma Surgery, CMC Vellore",
     },
     {
-      image : 'amit.png',
+      image: "amit.png",
       name: "Dr. Amit Gupta",
       dept: "Professor, Division of Trauma Surgery, JPNATC, AIIMS, New Delhi",
     },
@@ -38,7 +37,7 @@ this.events = this.dataService.events
       dept: " Associate Professor, Emergency Radiology, CMC, Vellore",
     },
     {
-      image : 'subodh.png',
+      image: "subodh.png",
       name: "Dr. Subodh Kumar",
       dept: "Professor, Division of Trauma Surgery, JPNATC, AIIMS, New Delhi",
     },
@@ -47,7 +46,7 @@ this.events = this.dataService.events
       dept: " Associate Professor, Department of Cardiothoracic Surgery, CMC Vellore",
     },
     {
-      image : 'kajal.png',
+      image: "kajal.png",
       name: "Dr. Kajal Jain",
       dept: "Professor, Department of Anaesthesia, PGIMER, Chandigarh",
     },
@@ -68,12 +67,12 @@ this.events = this.dataService.events
       dept: " Assistant Professor, Department of Anaesthesia, CMC Vellore",
     },
     {
-      image : 'srujan.png',
+      image: "srujan.png",
       name: "Dr. Srujan Lam Sharma",
       dept: " Assistant Professor, Department of Trauma Surgery, CMC, Vellore",
     },
     {
-      image : 'vignesh.png',
+      image: "vignesh.png",
       name: "Dr. Vignesh Kumar",
       dept: " Associate Professor, PIMS, Puducherry ",
     },
@@ -83,12 +82,8 @@ this.events = this.dataService.events
     },
   ];
 
- 
-
-
-  register(event){
-    console.log(event)
-    this.router.navigate(['/register',event.id]);
-
+  register(event) {
+    console.log(event);
+    this.router.navigate(["/register", event.id]);
   }
 }

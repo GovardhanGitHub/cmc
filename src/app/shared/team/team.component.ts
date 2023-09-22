@@ -22,11 +22,15 @@ export class TeamComponent implements OnInit {
     },
 
     {
+      image : '13.jpg',
+
       name: "Dr. Vijayan P",
-      dept: " Department of Trauma Surgery, CMC Vellore",
+      dept: "Assoiciate Suegon, Department of Trauma Surgery, CMC Vellore",
     },
 
     {
+      image : '14.jpg',
+
       name: "Dr. Joses Dany James",
       dept: " Assistant Professor, Department of Trauma Surgery, CMC Vellore",
     },

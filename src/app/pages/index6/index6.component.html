@@ -14,14 +14,21 @@
                     <a [ngxScrollTo]="'#home'" class="nav-link" href="javascript: void(0);">Home</a>
                 </li>
 
+                       
+                <li class="nav-item" [ngClass]="{'active':currentSection === 'features'}">
+                    <a [ngxScrollTo]="'#features'" class="nav-link" href="javascript: void(0);">Facility</a>
+                </li>
+
+                <li class="nav-item" [ngClass]="{'active':currentSection === 'team'}">
+                    <a [ngxScrollTo]="'#team'" class="nav-link" href="javascript: void(0);">Faculties</a>
+                </li>
+              
+
                 <li class="nav-item" [ngClass]="{'active':currentSection === 'pricing'}">
                     <a [ngxScrollTo]="'#pricing'" class="nav-link" href="javascript: void(0);">Events</a>
                 </li>
 
-               
-                <li class="nav-item" [ngClass]="{'active':currentSection === 'features'}">
-                    <a [ngxScrollTo]="'#features'" class="nav-link" href="javascript: void(0);">Facility</a>
-                </li>
+        
                 <!-- <li class="nav-item" [ngClass]="{'active':currentSection === 'testi'}">
                     <a [ngxScrollTo]="'#testi'" class="nav-link" href="javascript: void(0);">Client</a>
                 </li> -->
@@ -31,10 +38,7 @@
                 </li>
 
 
-                <li class="nav-item" [ngClass]="{'active':currentSection === 'team'}">
-                    <a [ngxScrollTo]="'#team'" class="nav-link" href="javascript: void(0);">Faculties</a>
-                </li>
-              
+             
 
                 <li class="nav-item" [ngClass]="{'active':currentSection === 'services'}">
                     <a [ngxScrollTo]="'#services'" class="nav-link" href="javascript: void(0);">About us</a>
@@ -84,15 +88,17 @@
     <!-- END HOME -->
 
   
+    <app-features></app-features>
+    <app-team></app-team>
     <app-pricing></app-pricing>
     
     
     <!-- <app-client></app-client> -->
 
 
-    <app-features></app-features>
+    
     <app-faq></app-faq>
-    <app-team></app-team>
+    
    
     <app-services></app-services>
     <app-contact></app-contact>

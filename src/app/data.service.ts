@@ -6,9 +6,8 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class DataService {
-  
   private url =
-    "https://clin.cmcvellore.ac.in/newconference/ConferencePay.asmx";
+    "https://clin.CMCVellore.ac.in/newconference/ConferencePay.asmx";
   prod_cred = {
     userName: "UMRCETS",
     password: "us8FaGH5",
@@ -16,7 +15,7 @@ export class DataService {
   };
 
   private test_url =
-    "https://clin.cmcvellore.ac.in/TestConference/ConferencePay.asmx";
+    "https://clin.CMCVellore.ac.in/TestConference/ConferencePay.asmx";
   test_cred = {
     userName: "UMRESTC",
     password: "zEVjHc9Y",
@@ -29,14 +28,14 @@ export class DataService {
   sendSOAPRequest(formData: any): Observable<any> {
     const headers = new HttpHeaders({
       "Content-Type": "text/xml; charset=utf-8",
-      SOAPAction: "http://www.cmch-vellore.edu/NEWCONFONLINEPAYSAVE",
+      SOAPAction: "http://www.CMCh-Vellore.edu/NEWCONFONLINEPAYSAVE",
     });
 
-    const soapBody = this.generateSOAPBody(this.test_cred, formData);
+    const soapBody = this.generateSOAPBody(this.prod_cred, formData);
 
     console.log(soapBody);
 
-    return this.httpClient.post(this.test_url, soapBody, {
+    return this.httpClient.post(this.url, soapBody, {
       headers,
       responseType: "text",
     });
@@ -45,7 +44,7 @@ export class DataService {
   // Generate the SOAP body from form data
   private generateSOAPBody(userDetails: any, formData: any): string {
     const soapXML = `
-    <x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:www="http://www.cmch-vellore.edu/">
+    <x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:www="http://www.CMCh-Vellore.edu/">
       <x:Header>
         <www:UserDetails>
         <www:userName>${userDetails.userName}</www:userName>
@@ -83,19 +82,19 @@ export class DataService {
       id: 1,
       code: "TSURCME",
       year: "2023",
-      subject: "Symposium on ",
+      subject: "CMC on ",
       title: " Advance in Chest Trauma Management",
-      date: "13 & 14 October, 2023",
+      date: "13 & 14 th, October - 2023",
       venue: [
         {
           title: "Symposium (Hybrid/ In person) ",
           date: "13.10.2023",
-          address: "Conference Hall 7th floor, Cmc vellore Ranipet campus",
+          address: "Conference Hall 7th floor, CMC, Vellore Ranipet Campus",
         },
         {
           title: "Cadaveric Workshop ",
           date: "14.10.2023",
-          address: "Antomy Dissection Hall, Cmc vellore bagayam campus",
+          address: "Antomy Dissection Hall, CMC, Vellore bagayam Campus",
           info: "Limited seats & in person only",
         },
       ],
@@ -123,8 +122,134 @@ export class DataService {
       ],
 
       phone: "04172 – 224627 ",
-      email: "traumasurg.academic@cmcvellore.ac.in",
+      email: "traumasurg.academic@CMCVellore.ac.in",
       isActive: true,
+      doctors: [
+        {
+          name: "Dr. Kajal Jain ",
+          prof: "Professor",
+          at: "Trauma Anaesthesia PGIMER, Chandigarh.",
+          id: 1,
+          image: "1.jpg",
+        },
+        {
+          name: "Dr. Subodh Kumar",
+          prof: "Professor",
+          at: "Division of Trauma Surgery,  JPNATC, AIIMS New Delhi",
+          id: 2,
+          image: "2.jpg",
+        },
+        {
+          name: "Dr. Amit Gupta",
+          prof: "Professor",
+          at: "Division of Trauma Surgery JPNATC, AIIMS New Delhi",
+          id: 3,
+          image: "3.jpg",
+        },
+        {
+          name: "Dr. Krishnan Raghavendran ",
+          prof: "Professor",
+          at: " Division of Trauma and Acute Care Surgery, University Hospital, Ann Arbor Hospital Michigan",
+          id: 4,
+          image: "4.jpg",
+        },
+        {
+          name: "Dr. Balasubramoniam",
+          at: "Consultant Thoracic Surgeon, Yashoda group of Hospitals, Hyderabad",
+          id: 5,
+          image: "5.jpg",
+        },
+        {
+          name: "Dr. Sukria Nayak",
+          prof: "Professor & Head",
+          at: " Department of Trauma Surgery, CMC Vellore",
+          id: 6,
+          image: "6.jpg",
+        },
+        {
+          name: "Dr. Vinay M Rao ",
+          prof: "Associate Professor",
+          at: "Department of Cardiothoracic, Surgery CMC Vellore",
+          id: 7,
+          image: "7.jpg",
+        },
+        {
+          name: "Dr. Niladri Banerjee",
+          prof: "Assistant Professor",
+          at: "Department of Surgery, AIIMS Jodhpur",
+          id: 8,
+          image: "8.jpg",
+        },
+        {
+          name: "Dr. Santhosh R Benjamin",
+          prof: "Associate Professor",
+          at: "Department of Cardiothoracic, Surgery,CMC Vellore",
+          id: 9,
+          image: "9.jpg",
+        },
+        {
+          name: "Dr. Susheel Sudheesh",
+          prof: "Assistant Professor",
+          at: "Department of Anaesthesia, CMC Vellore",
+          id: 10,
+          image: "10.jpg",
+        },
+        {
+          name: "Dr. Kirthi Sathyakumar ",
+          prof: "Associate Professor",
+          at: "Emergency Radiology, CMC Vellore",
+          id: 11,
+          image: "11.jpg",
+        },
+        {
+          name: "Dr. Srujan Lam Sharma",
+          prof: "Assistant Professor",
+          at: "Department of Trauma Surgery, CMC Vellore",
+          id: 12,
+          image: "12.jpg",
+        },
+        {
+          name: "Dr. Vijayan P",
+          prof: "Associate Professor",
+          at: "Department of Trauma Surgery, CMC Vellore",
+          id: 13,
+          image: "13.jpg",
+        },
+        {
+          name: "Dr. Joses Dany James",
+          prof: "Assistant Professor",
+          at: "Department of Trauma Surgery, CMC Vellore",
+          id: 14,
+          image: "14.jpg",
+        },
+        {
+          name: "Dr. Vignesh Kumar",
+          prof: "Associate Professor",
+          at: "Department of General Surgery, PIMS, Puducherry",
+          id: 15,
+          image: "15.jpg",
+        },
+        {
+          name: "Dr. Ekta Rai",
+          prof: "Professor ",
+          at: "Department of Anesthesia,CMC Vellore",
+          id: 16,
+          image: "16.jpg",
+        },
+        {
+          name: "Dr.Madhu Andrew Philip",
+          at: "Department of Cardiothoracic Surgery,CMC Vellore",
+          id: 17,
+          image: "17.jpg",
+        },
+        {
+          name: "Dr. Balasubramani",
+          prof: "Professor ",
+          at: "Department of  Surgical ICU, CMC Vellore",
+          id: 18,
+          image: "18.jpg",
+        },
+      ],
     },
   ];
 }
