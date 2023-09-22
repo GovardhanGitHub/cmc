@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-lg-12">
-        <img src="assets/images/cmc/logo-1.png"  style="max-width:10%;" alt="..." class="img-thumbnail">
+        <img src="assets/images/cmc/logo-1.png"  style="max-width:10%;" alt="..." class="img-thumbnail mb-2" >
         <h3 class="title">
           Events -
           <span class="fw-bold"> Save the Day! </span>
@@ -109,9 +109,53 @@
         </div>
       </div>
     </div>
+</div>
 
- 
+
+
+<div class="container">
+  <!-- <div class="row justify-content-center text-center">
+    <div class="col-lg-12">
+      <i class="ti-user title-icon text-muted"></i>
+      <h3 class="title">Our <span class="fw-bold">Faculties</span></h3>
+    
+    </div>
+  </div> -->
+
+<div class="row ">
+      <ng-container *ngFor="let item of team; let i = index">
+    <div class="col-lg-4">
+      <div class="text-center bg-white team-box mt-3 p-5">
+        <div >
+          <img
+          style="max-width:40%;"
+            [src]="item.image ? 'assets/images/doctor/'+item.image : 'assets/images/doctor/pro-logo.png'"
+            alt=""
+            class="img-fluid rounded-circle img-thumbnail mx-auto d-block"
+          />
+        </div>
+
+        <div class="team-name">
+          <p class="fw-bold mb-0 mt-4">{{ item.name }}</p>
+          <p class="text-muted mt-4">
+            {{ item.dept }}
+          </p>
+        </div>
+        <!-- <div class="">
+                    <ul class="list-inline team-social mt-4 mb-0">
+                        <li class="list-inline-item"><a href="#"><i class="ti-github"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="ti-skype"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                    </ul>
+                </div> -->
+      </div>
+    </div>
+    <!-- Start a new row after every fourth item -->
+    <div class="w-100" *ngIf="(i + 1) % 6 === 0"></div>
+</ng-container>
   </div>
+</div>
+
 </section>
 
 <!-- END PRICING -->

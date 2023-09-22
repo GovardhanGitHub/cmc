@@ -20,6 +20,29 @@ export class TeamComponent implements OnInit {
       name: "Dr. Sukria Nayak",
       dept: "Head, Department of Trauma Surgery, CMC Vellore",
     },
+
+    {
+      name: "Dr. Vijayan P",
+      dept: " Department of Trauma Surgery, CMC Vellore",
+    },
+
+    {
+      name: "Dr. Joses Dany James",
+      dept: " Assistant Professor, Department of Trauma Surgery, CMC Vellore",
+    },
+
+    {
+      image : 'srujan.png',
+      name: "Dr. Srujan Lam Sharma",
+      dept: " Assistant Professor, Department of Trauma Surgery, CMC, Vellore",
+    },
+  ]
+  teama= [
+    {
+      image : 'sukria.png',
+      name: "Dr. Sukria Nayak",
+      dept: "Head, Department of Trauma Surgery, CMC Vellore",
+    },
     {
       image : 'amit.png',
       name: "Dr. Amit Gupta",

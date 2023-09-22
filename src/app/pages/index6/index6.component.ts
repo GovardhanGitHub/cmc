@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from 'src/app/student.service';
 
 @Component({
   selector: 'app-index6',
@@ -10,11 +11,35 @@ import { Component, OnInit } from '@angular/core';
  */
 export class Index6Component implements OnInit {
 
-  constructor() { }
+  constructor(private studentService : StudentService) { }
 
   currentSection = 'home';
+  students
+  student
 
-  ngOnInit(): void {
+   ngOnInit() {
+
+
+    this.students =  this.studentService.getAllStudents();
+    console.log("students : ",this.students);
+
+    this.student =  this.studentService.insertStudent();
+    console.log("student : ",this.student);
+    
+
+    // this.studentService.makeHttpRequest().subscribe(
+    //   (response) => {
+    //     // Handle the response here
+    //     console.log(response);
+    //   },
+    //   (error) => {
+    //     // Handle errors here
+    //     console.error(error);
+    //   }
+    // );
+
+
+
     let i = 1;
     setInterval(() => {
       if (i === 1) { (<HTMLImageElement>document.querySelector("#isSlideImage")).src = 'assets/images/cmc/drapt2.jpeg'; }

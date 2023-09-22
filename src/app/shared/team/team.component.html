@@ -1,29 +1,31 @@
 <!-- START TEAM-->
-<section class="section " style="    background-color: #e9ecef !important;" id="team">
+
+<section class="section team-bg"  id="team">
   <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-12">
-        <i class="ti-user title-icon text-muted"></i>
-        <h3 class="title">Our <span class="fw-bold">Faculties</span></h3>
-        <!-- <p class="text-muted mt-3 title-subtitle mx-auto">
-          It is a long established fact that a reader will be of a page when
-          established fact looking at its layout.
-        </p> -->
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-12">
+          <i class="ti-user title-icon text-muted"></i>
+          <h3 class="title">Our <span class="fw-bold">Faculties</span></h3>
+        
+        </div>
       </div>
-    </div>
 
     <div class="row mt-5">
           <ng-container *ngFor="let item of team; let i = index">
-        <div class="col-lg-4">
-          <div class="text-center bg-white team-box mt-3 p-5">
-            <div *ngIf="item.image">
+        <div class="col-lg-3">
+          <div class="card border-dark text-center bg-white team-box mt-3 p-5">
+            <div >
               <img
               style="max-width:40%;"
-                src="assets/images/doctor/{{item.image}}"
+                [src]="item.image ? 'assets/images/doctor/'+item.image : 'assets/images/doctor/pro-logo.png'"
                 alt=""
                 class="img-fluid rounded-circle img-thumbnail mx-auto d-block"
               />
             </div>
+
+   
+
+
             <div class="team-name">
               <p class="fw-bold mb-0 mt-4">{{ item.name }}</p>
               <p class="text-muted mt-4">
