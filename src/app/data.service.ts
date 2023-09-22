@@ -82,7 +82,7 @@ export class DataService {
       id: 1,
       code: "TSURCME",
       year: "2023",
-      subject: "CMC on ",
+      subject: "CME on ",
       title: " Advance in Chest Trauma Management",
       date: "13 & 14 th, October - 2023",
       venue: [

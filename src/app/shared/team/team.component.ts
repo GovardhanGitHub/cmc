@@ -25,7 +25,7 @@ export class TeamComponent implements OnInit {
       image : '13.jpg',
 
       name: "Dr. Vijayan P",
-      dept: "Assoiciate Suegon, Department of Trauma Surgery, CMC Vellore",
+      dept: "Associate Surgeon, Department of Trauma Surgery, CMC Vellore",
     },
 
     {
