@@ -1,278 +1,895 @@
-<div class="row">
-    <div class="col-lg">
-        <div class="container">
-        <div class="card">
-            <div class="card-body">
-
-                <h4 class="card-title">Registration Form</h4>
-                <hr>    <br>
-            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-                <!-- Conference Code -->
-                <div class="form-group mb-3">
-                  <label class="text-primary" for="conferencecode">Conference Code: *</label>
-                  <input class="form-control" type="text" id="conferencecode" formControlName="conferencecode">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('conferencecode').hasError('required')" class="error-message">This field is required.</small>
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('conferencecode').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Conference Year -->
-                <div class="form-group mb-3">
-                  <label class="text-primary" for="conferenceyear">Conference Year: *</label>
-                  <input class="form-control" type="text" id="conferenceyear" formControlName="conferenceyear">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('conferenceyear').hasError('required')" class="error-message">This field is required.</small>
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('conferenceyear').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Payment Through (Bank Name) -->
-                <div class="form-group mb-3">
-                  <label class="text-primary" for="bankname">Payment Through: *</label>
-                  <select id="bankname" formControlName="bankname" class="form-control">
-                    <option value="">Select Payment Method</option>
-                    <option value="PAYU">PAYU</option>
-                    <option value="HDFC">HDFC</option>
-                  </select>
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('bankname').hasError('required')" class="error-message">This field is required.</small>
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('bankname').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Client IP Address (Remote IP Address) -->
-                <div class="form-group mb-3">
-                  <label for="remoteip">Client IP Address:</label>
-                  <input class="form-control" type="text" id="remoteip" formControlName="remoteip">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('remoteip').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Registration Number -->
-                <div class="form-group mb-3">
-                  <label class="text-primary" for="regno">Registration Number: *</label>
-                  <input class="form-control" type="text" id="regno" formControlName="regno">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('regno').hasError('required')" class="error-message">This field is required.</small>
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('regno').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Payee Name (Candidate Name) -->
-                <div class="form-group mb-3">
-                  <label class="text-primary" for="candidatename">Payee Name: *</label>
-                  <input class="form-control" type="text" id="candidatename" formControlName="candidatename">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('candidatename').hasError('required')" class="error-message">This field is required.</small>
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('candidatename').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Name to be printed in Receipt -->
-                <div class="form-group mb-3">
-                  <label class="text-primary" for="nameinreceipt">Name to be printed in Receipt: *</label>
-                  <input class="form-control" type="text" id="nameinreceipt" formControlName="nameinreceipt">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('nameinreceipt').hasError('required')" class="error-message">This field is required.</small>
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('nameinreceipt').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Address Line 1 -->
-                <div class="form-group mb-3">
-                  <label for="address1">Address Line 1:</label>
-                  <input class="form-control" type="text" id="address1" formControlName="address1">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('address1').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Address Line 2 -->
-                <div class="form-group mb-3">
-                  <label for="address2">Address Line 2:</label>
-                  <input class="form-control" type="text" id="address2" formControlName="address2">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('address2').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- City -->
-                <div class="form-group mb-3">
-                  <label for="city">City:</label>
-                  <input class="form-control" type="text" id="city" formControlName="city">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('city').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- State -->
-                <div class="form-group mb-3">
-                  <label for="state">State:</label>
-                  <input class="form-control" type="text" id="state" formControlName="state">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('state').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Country -->
-                <div class="form-group mb-3">
-                  <label for="country">Country:</label>
-                  <input class="form-control" type="text" id="country" formControlName="country">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('country').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Pincode -->
-                <div class="form-group mb-3">
-                  <label for="pincode">Pincode:</label>
-                  <input class="form-control" type="text" id="pincode" formControlName="pincode">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('pincode').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Landline Number (Phone) -->
-                <div class="form-group mb-3">
-                  <label for="phone">Landline Number:</label>
-                  <input class="form-control" type="text" id="phone" formControlName="phone">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('phone').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Mobile Number -->
-                <div class="form-group mb-3">
-                  <label for="mobile">Mobile Number:</label>
-                  <input class="form-control" type="text" id="mobile" formControlName="mobile">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('mobile').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Email ID -->
-                <div class="form-group mb-3">
-                  <label for="email">Email ID:</label>
-                  <input class="form-control" type="text" id="email" formControlName="email">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('email').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Food Type -->
-                <div class="form-group mb-3">
-                  <label for="foodtype">Food Type:</label>
-                  <select class="form-control" id="foodtype" formControlName="foodtype">
-                    <option value="">Select Food Type</option>
-                    <option value="V">V - Veg</option>
-                    <option value="NV">NV - Non-Veg</option>
-                  </select>
-                </div>
-              
-                <!-- Participant Type -->
-                <div class="form-group mb-3">
-                  <label for="participanttype">Participant Type:</label>
-                  <input class="form-control" type="text" id="participanttype" formControlName="participanttype">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('participanttype').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Practice Type -->
-                <div class="form-group mb-3">
-                  <label for="practicetype">Practice Type:</label>
-                  <input class="form-control" type="text" id="practicetype" formControlName="practicetype">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('practicetype').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Accompany Persons -->
-                <div class="form-group mb-3">
-                  <label for="accompanymembers">Accompany Persons:</label>
-                  <input class="form-control" type="text" id="accompanymembers" formControlName="accompanymembers">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('accompanymembers').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Registration Fees (Payment Amount) -->
-                <div class="form-group mb-3">
-                  <label class="text-primary" for="paymentamount">Registration Fees: *</label>
-                  <select class="form-control" id="paymentamount" formControlName="paymentamount">
-                    <option *ngFor="let option of event.fee" [value]="option.cost">
-                 {{ option.desc }} - <span class="text-primary">  (Rs. {{ option.cost }}) </span>
-                      </option>
-                  </select>
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('paymentamount').hasError('required')" class="error-message">This field is required.</small>
-                </div>
-               
-
-
-
-              
-                <!-- Paying Towards -->
-                <div class="form-group mb-3">
-                  <label class="text-primary" for="ToWards">Paying Towards: *</label>
-                  <input class="form-control" type="text" placeholder="Workshop Fee" id="ToWards" formControlName="ToWards">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('ToWards').hasError('required')" class="error-message">This field is required.</small>
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('ToWards').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- User opt for 80G -->
-                <div class="form-group mb-3">
-                  <label for="Allow80G" class="text-primary">User opt for 80G: *</label>
-                  <select class="form-control" id="Allow80G" formControlName="Allow80G">
-                    <option value="Y">Y - Yes</option>
-                    <option value="N">N - No</option>
-                  </select>
-                  <small  class="form-text text-muted"  *ngIf="registrationForm.get('Allow80G').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-
-                </div>
-              
-                <!-- PAN Card No -->
-                <div class="form-group mb-3">
-                  <label for="PanCardNo">PAN Card No:</label>
-                  <input class="form-control" type="text" id="PanCardNo" formControlName="PanCardNo">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('PanCardNo').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Amount Contains GST (hasgst) -->
-                <div class="form-group mb-3">
-                  <label for="hasgst" class="text-primary">Amount Contains GST:</label>
-                  <select class="form-control" id="hasgst" formControlName="hasgst">
-                    <option value="Y">Y - Yes</option>
-                    <option value="N">N - No</option>
-                  </select>
-                  <small  class="form-text text-muted"  *ngIf="registrationForm.get('hasgst').hasError('required')" class="error-message">This field is required.</small>
-
-                </div>
-              
-                <!-- GST Registered / Unregistered -->
-                <div class="form-group mb-3">
-                  <label for="GSTReg">GST Registered / Unregistered:</label>
-                  <input class="form-control" type="text" id="GSTReg" formControlName="GSTReg">
-                </div>
-              
-                <!-- GST Number -->
-                <div class="form-group mb-3">
-                  <label for="gstnumber">GST Number:</label>
-                  <input class="form-control" type="text" id="gstnumber" formControlName="gstnumber">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('gstnumber').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- GST Registered Mobile No -->
-                <div class="form-group mb-3">
-                  <label for="gstmobileno">GST Registered Mobile No:</label>
-                  <input class="form-control" type="text" id="gstmobileno" formControlName="gstmobileno">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('gstmobileno').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- GST Registered Email ID -->
-                <div class="form-group mb-3">
-                  <label for="gstemailid">GST Registered Email ID:</label>
-                  <input class="form-control" type="text" id="gstemailid" formControlName="gstemailid">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('gstemailid').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Additional Field Caption 1 -->
-                <div class="form-group mb-3">
-                  <label for="inputcaption1">Additional Field Caption 1:</label>
-                  <input class="form-control" type="text" id="inputcaption1" formControlName="inputcaption1">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('inputcaption1').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Additional Field Caption 1 Value -->
-                <div class="form-group mb-3">
-                  <label for="inputvalue1">Additional Field Caption 1 Value:</label>
-                  <input class="form-control" type="text" id="inputvalue1" formControlName="inputvalue1">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('inputvalue1').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Additional Field Caption 2 -->
-                <div class="form-group mb-3">
-                  <label for="inputcaption2">Additional Field Caption 2:</label>
-                  <input class="form-control" type="text" id="inputcaption2" formControlName="inputcaption2">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('inputcaption2').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                <!-- Additional Field Caption 2 Value -->
-                <div class="form-group mb-3">
-                  <label for="inputvalue2">Additional Field Caption 2 Value:</label>
-                  <input class="form-control" type="text" id="inputvalue2" formControlName="inputvalue2">
-                   <small  class="form-text text-muted"  *ngIf="registrationForm.get('inputvalue2').hasError('maxLength')" class="error-message">Maximum length exceeded.</small>
-                </div>
-              
-                
-                <button type="submit" class="btn btn-primary">Submit</button>
-            
-              </form>
-         </div>
+<div *ngIf="paymentInfo.ResultCode != '0'" class="row mt-2">
+  <div class="col-lg">
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Registration Form</h4>
+          <hr />
+          <br />
+          <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <!-- Conference Code -->
+            <div class="form-group mb-3">
+              <label class="text-primary" for="conferencecode"
+                >Conference Code: *</label
+              >
+              <input
+              disabled="disabled"
+                class="form-control"
+                type="text"
+                id="conferencecode"
+                formControlName="conferencecode"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('conferencecode').hasError('required')
+                "
+                class="error-message"
+                >This field is required.</small
+              >
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('conferencecode').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
             </div>
+
+            <!-- Conference Year -->
+            <div class="form-group mb-3">
+              <label class="text-primary" for="conferenceyear"
+                >Conference Year: *</label
+              >
+              <input
+              disabled="disabled"
+                class="form-control"
+                type="text"
+                id="conferenceyear"
+                formControlName="conferenceyear"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('conferenceyear').hasError('required')
+                "
+                class="error-message"
+                >This field is required.</small
+              >
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('conferenceyear').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+         
+
+            <!-- Client IP Address (Remote IP Address) -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="remoteip">Client IP Address:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="remoteip"
+                formControlName="remoteip"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('remoteip').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Registration Number -->
+            <div class="form-group mb-3">
+              <label class="text-primary" for="regno"
+                >Registration Number: *</label
+              >
+              <input
+              disabled="disabled"
+                class="form-control"
+                type="text"
+                id="regno"
+                formControlName="regno"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('regno').hasError('required')"
+                class="error-message"
+                >This field is required.</small
+              >
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('regno').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Payee Name (Candidate Name) -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label class="text-primary" for="candidatename"
+                >Payee Name: *</label
+              >
+              <input
+                class="form-control"
+                type="text"
+                id="candidatename"
+                formControlName="candidatename"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('candidatename').hasError('required')
+                "
+                class="error-message"
+                >This field is required.</small
+              >
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('candidatename').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Name to be printed in Receipt -->
+            <div class="form-group mb-3">
+              <label class="text-primary" for="nameinreceipt"
+                >Name to be printed on the certificate: *</label
+              >
+              <input
+                class="form-control"
+                type="text"
+                id="nameinreceipt"
+                formControlName="nameinreceipt"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('nameinreceipt').hasError('required')
+                "
+                class="error-message"
+                >This field is required.</small
+              >
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('nameinreceipt').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="designation">Designation:</label>
+              <select
+                class="form-control"
+                id="designation"
+                formControlName="designation"
+              >
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Postgraduate">Postgraduate</option>
+                <option value="Consultant">Consultant</option>
+              </select>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="placeOfWork">Present place of work:</label>
+              <select
+                class="form-control"
+                id="placeOfWork"
+                formControlName="placeOfWork"
+              >
+                <option value="None">None</option>
+                <option value="PrivatePractice">Private practice</option>
+                <option value="MedicalCollege">Medical College</option>
+                <option value="Hospital">Hospital</option>
+              </select>
+            </div>
+
+            <!-- Conditional input field for Medical College -->
+            <div
+              class="form-group mb-3"
+              *ngIf="
+                registrationForm.get('placeOfWork').value === 'MedicalCollege'
+              "
+            >
+              <label for="medicalCollegeName">Name of Medical College:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="medicalCollegeName"
+                formControlName="medicalCollegeName"
+              />
+            </div>
+
+            <!-- Conditional input field for Hospital -->
+            <div
+              class="form-group mb-3"
+              *ngIf="registrationForm.get('placeOfWork').value === 'Hospital'"
+            >
+              <label for="hospitalName">Name of Hospital:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="hospitalName"
+                formControlName="hospitalName"
+              />
+            </div>
+
+            <!-- Address Line 1 -->
+            <div class="form-group mb-3">
+              <label for="address1">Address </label>
+              <textarea
+                class="form-control"
+                type="text"
+                id="address1"
+                formControlName="address1"
+                rows="3"
+              >
+              </textarea>
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('address1').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Address Line 2 -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="address2">Address Line 2:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="address2"
+                formControlName="address2"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('address2').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- City -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="city">City:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="city"
+                formControlName="city"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('city').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- State -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="state">State:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="state"
+                formControlName="state"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('state').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Country -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="country">Country:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="country"
+                formControlName="country"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('country').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Pincode -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="pincode">Pincode:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="pincode"
+                formControlName="pincode"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('pincode').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Landline Number (Phone) -->
+    
+            <div class="form-group mb-3" >
+              <label class="text-primary" for="phone">Mobile Number:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="phone"
+                formControlName="phone"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('phone').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+
+              <small class="form-text text-muted" *ngIf="registrationForm.get('phone').hasError('required')"
+              class="error-message">This field is required.</small>
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="mobile">Mobile Number:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="mobile"
+                formControlName="mobile"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('mobile').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Email ID -->
+            <div class="form-group mb-3">
+              <label for="email">Email ID:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="email"
+                formControlName="email"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('email').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Food Type -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="foodtype">Food Type:</label>
+              <select
+                class="form-control"
+                id="foodtype"
+                formControlName="foodtype"
+              >
+                <option value="">Select Food Type</option>
+                <option value="V">V - Veg</option>
+                <option value="NV">NV - Non-Veg</option>
+              </select>
+            </div>
+
+            <!-- Participant Type -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="participanttype">Participant Type:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="participanttype"
+                formControlName="participanttype"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('participanttype').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Practice Type -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="practicetype">Practice Type:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="practicetype"
+                formControlName="practicetype"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('practicetype').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Accompany Persons -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="accompanymembers">Accompany Persons:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="accompanymembers"
+                formControlName="accompanymembers"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('accompanymembers').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Registration Fees (Payment Amount) -->
+
+            <!-- <div class="form-group mb-3">
+              <label class="text-primary" for="paymentamount">Registration Fees: *</label>
+              <select class="form-control" id="paymentamount" formControlName="paymentamount">
+                <option *ngFor="let option of event.fee" [value]="option.cost">
+                  {{ option.desc }} - <span class="text-primary"> (Rs. {{ option.cost }}) </span>
+                </option>
+              </select>
+              <small class="form-text text-muted" *ngIf="registrationForm.get('paymentamount').hasError('required')"
+                class="error-message">This field is required.</small>
+            </div> -->
+
+            <div class="card p-2 mb-3">
+              <div class="form-group mb-3">
+                <label>ISTAC Members:</label>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="istacMemberYes"
+                    value="Yes"
+                    formControlName="istacMember"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="istacMemberNo"
+                    value="No"
+                    formControlName="istacMember"
+                  />
+                  <label class="form-check-label"> No </label>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group mb-3"
+              *ngIf="registrationForm.get('istacMember').value === 'Yes'"
+            >
+              <label for="istacMemberID">ISTAC Member ID:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="istacMemberID"
+                formControlName="istacMemberID"
+              />
+            </div>
+
+            <!-- <div class="form-group mb-3">
+              <label for="paymentamount">paymentamount:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="paymentamount"
+                formControlName="paymentamount"
+              />
+            </div> -->
+
+            <div class="form-group mb-3">
+              <label for="registrationType">Registration Type:</label>
+              <select
+                id="registrationType"
+                class="form-control"
+                formControlName="registrationType"
+                (change)="calculateTotalPrice()"
+              >
+              <option value="NA">NA</option>
+                <option
+                  *ngIf="registrationForm.get('istacMember').value === 'Yes'"
+                  value="Online"
+                >
+                  Online ₹ 500 + 18% GST
+                </option>
+               
+                <option value="Symposium">Symposium ₹ 1000 + 18% GST</option>
+                <option value="Workshop">Workshop ₹ 3500 + 18% GST</option>
+                <option value="SymposiumAndWorkshop">
+                  Symposium & Workshop ₹ 4500 + 18% GST
+                </option>
+              </select>
+            </div>
+
+            <!-- Paying Towards -->
+            <div class="form-group mb-3">
+              <label class="text-primary" for="ToWards"
+                >Paying Towards: *</label
+              >
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Workshop Fee"
+                id="ToWards"
+                formControlName="ToWards"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('ToWards').hasError('required')"
+                class="error-message"
+                >This field is required.</small
+              >
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('ToWards').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+               <!-- Payment Through (Bank Name) -->
+               <div class="form-group mb-3">
+                <label class="text-primary" for="bankname"
+                  >Payment Through: *</label
+                >
+                <select
+                  id="bankname"
+                  formControlName="bankname"
+                  class="form-control"
+                >
+                  <option value="">Select Payment Method</option>
+                  <option value="PAYU">PAYU - Cards, UPI, Wallets, Netbanking</option>
+                  <option value="HDFC">HDFC - Cards</option>
+                </select>
+                <small
+                  class="form-text text-muted"
+                  *ngIf="registrationForm.get('bankname').hasError('required')"
+                  class="error-message"
+                  >This field is required.</small
+                >
+                <small
+                  class="form-text text-muted"
+                  *ngIf="registrationForm.get('bankname').hasError('maxLength')"
+                  class="error-message"
+                  >Maximum length exceeded.</small
+                >
+              </div>
+
+            <div class="card p-2 mb-3">
+              <div class="form-group mb-3">
+                <label for="submitCase"
+                  >Are you interested in submitting a challenging or interesting
+                  case?</label
+                >
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="submitCaseYes"
+                    value="Yes"
+                    formControlName="submitCase"
+                  />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="submitCaseNo"
+                    value="No"
+                    formControlName="submitCase"
+                  />
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="registrationForm.get('submitCase').value === 'Yes'">
+              <p>
+                Submit your abstract to
+                <a href="mailto:traumasurg.academic@cmcvellore.ac.in"
+                  >traumasurg.academic@cmcvellore.ac.in</a
+                >
+              </p>
+            </div>
+
+            <!-- User opt for 80G -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="Allow80G" class="text-primary"
+                >User opt for 80G: *</label
+              >
+              <select
+                class="form-control"
+                id="Allow80G"
+                formControlName="Allow80G"
+              >
+                <option value="Y">Y - Yes</option>
+                <option value="N">N - No</option>
+              </select>
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('Allow80G').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- PAN Card No -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="PanCardNo">PAN Card No:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="PanCardNo"
+                formControlName="PanCardNo"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('PanCardNo').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Amount Contains GST (hasgst) -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="hasgst" class="text-primary"
+                >Amount Contains GST:</label
+              >
+              <select class="form-control" id="hasgst" formControlName="hasgst">
+                <option value="Y">Y - Yes</option>
+                <option value="N">N - No</option>
+              </select>
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('hasgst').hasError('required')"
+                class="error-message"
+                >This field is required.</small
+              >
+            </div>
+
+            <!-- GST Registered / Unregistered -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="GSTReg">GST Registered / Unregistered:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="GSTReg"
+                formControlName="GSTReg"
+              />
+            </div>
+
+            <!-- GST Number -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="gstnumber">GST Number:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="gstnumber"
+                formControlName="gstnumber"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('gstnumber').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- GST Registered Mobile No -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="gstmobileno">GST Registered Mobile No:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="gstmobileno"
+                formControlName="gstmobileno"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('gstmobileno').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- GST Registered Email ID -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="gstemailid">GST Registered Email ID:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="gstemailid"
+                formControlName="gstemailid"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="registrationForm.get('gstemailid').hasError('maxLength')"
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Additional Field Caption 1 -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="inputcaption1">Additional Field Caption 1:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="inputcaption1"
+                formControlName="inputcaption1"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('inputcaption1').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Additional Field Caption 1 Value -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="inputvalue1">Additional Field Caption 1 Value:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="inputvalue1"
+                formControlName="inputvalue1"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('inputvalue1').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Additional Field Caption 2 -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="inputcaption2">Additional Field Caption 2:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="inputcaption2"
+                formControlName="inputcaption2"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('inputcaption2').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <!-- Additional Field Caption 2 Value -->
+            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+              <label for="inputvalue2">Additional Field Caption 2 Value:</label>
+              <input
+                class="form-control"
+                type="text"
+                id="inputvalue2"
+                formControlName="inputvalue2"
+              />
+              <small
+                class="form-text text-muted"
+                *ngIf="
+                  registrationForm.get('inputvalue2').hasError('maxLength')
+                "
+                class="error-message"
+                >Maximum length exceeded.</small
+              >
+            </div>
+
+            <div class="mb-3">
+              <p>Total Price Including GST: ₹ {{ totalPrice }}</p>
+            </div>
+
+            <div class="alert alert-danger mb-2" *ngIf="getInvalidFields().length > 0">
+              Please correct the following fields:
+              <ul>
+                <li *ngFor="let field of getInvalidFields()">
+                  {{ field }}
+                </li>
+              </ul>
+            </div>
+            
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
+</div>
+
+<div class="row mt-3" *ngIf="paymentInfo.ResultCode == '0'">
+  <div class="col-lg">
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="text-muted text-primary">
+            The payment link has been generated successfully. Kindly jot down
+            the information or capture a screenshot of the details, and then
+            proceed to click the provided link below.
+          </h2>
+          <br />
+
+          <div class="container">
+            <p>Registration: {{ paymentInfo.Registration }}</p>
+            <p>Transaction ID: {{ paymentInfo.Transid }}</p>
+            <p>Result Code: {{ paymentInfo.ResultCode }}</p>
+            <p>Result: {{ paymentInfo.Result }}</p>
+            <a  class="btn btn-primary m-2" [href]="paymentInfo.URL">Payment URL</a>
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <p>
+              <!-- <a href="/">Go Home</a> | -->
+              <a href="javascript:void(0);" (click)="printPage()">Print</a> |
+              <!-- <a href="javascript:void(0);" (click)="goBack()">Go Back</a> -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

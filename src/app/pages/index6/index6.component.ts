@@ -20,11 +20,11 @@ export class Index6Component implements OnInit {
    ngOnInit() {
 
 
-    this.students =  this.studentService.getAllStudents();
-    console.log("students : ",this.students);
+    // this.students =  this.studentService.getAllStudents();
+    // console.log("students : ",this.students);
 
-    this.student =  this.studentService.insertStudent();
-    console.log("student : ",this.student);
+    // this.student =  this.studentService.insertStudent();
+    // console.log("student : ",this.student);
     
 
     // this.studentService.makeHttpRequest().subscribe(
@@ -39,15 +39,41 @@ export class Index6Component implements OnInit {
     // );
 
 
+    document.addEventListener("DOMContentLoaded", () => {
+      let i = 1;
+      setInterval(() => {
+        const slideImage = document.querySelector("#isSlideImage") as HTMLImageElement; // Cast to HTMLImageElement
+        if (!slideImage) {
+          return; // Exit if the element is not found
+        }
+    
+        if (i === 1) {
+          slideImage.src = 'assets/images/cmc/drapt2.jpeg';
+        } else if (i === 2) {
+          slideImage.src = 'assets/images/cmc/CMCH_Vellore.jpeg';
+        } else {
+          slideImage.src = 'assets/images/cmc/ranipet-Kannigapuram-2022-06-15-main-entrance-signsWA-1.jpeg';
+        }
+    
+        if (i >= 3) {
+          i = 0;
+        }
+        i++;
+      }, 2500);
+    });
+    
+    
 
-    let i = 1;
-    setInterval(() => {
-      if (i === 1) { (<HTMLImageElement>document.querySelector("#isSlideImage")).src = 'assets/images/cmc/drapt2.jpeg'; }
-      else if (i === 2) { (<HTMLImageElement>document.querySelector("#isSlideImage")).src = 'assets/images/cmc/CMCH_Vellore.jpeg'; }
-      else { (<HTMLImageElement>document.querySelector("#isSlideImage")).src = 'assets/images/cmc/ranipet-Kannigapuram-2022-06-15-main-entrance-signsWA-1.jpeg'; }
-      if (i >= 3) { i = 0; }
-      i++;
-    }, 2500);
+
+
+    // let i = 1;
+    // setInterval(() => {
+    //   if (i === 1) { (<HTMLImageElement>document.querySelector("#isSlideImage")).src = 'assets/images/cmc/drapt2.jpeg'; }
+    //   else if (i === 2) { (<HTMLImageElement>document.querySelector("#isSlideImage")).src = 'assets/images/cmc/CMCH_Vellore.jpeg'; }
+    //   else { (<HTMLImageElement>document.querySelector("#isSlideImage")).src = 'assets/images/cmc/ranipet-Kannigapuram-2022-06-15-main-entrance-signsWA-1.jpeg'; }
+    //   if (i >= 3) { i = 0; }
+    //   i++;
+    // }, 2500);
   }
 
   /**

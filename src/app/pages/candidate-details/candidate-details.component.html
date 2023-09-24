@@ -1,0 +1,64 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Detail Info</h2>
+    <div *ngIf="rowData" class="card">
+      <div class="card-body">
+        <h5 class="card-title">Candidate Information</h5>
+        <!-- Display the labels based on their corresponding inputcaptionX values -->
+
+        <!-- Add the remaining fields here using the same pattern -->
+        <p class="card-text"><strong>ID:</strong> {{ rowData.id || "-NA-"}}</p>
+        <p class="card-text"><strong>Conference Code:</strong> {{ rowData.conferencecode || "-NA-"}}</p>
+        <p class="card-text"><strong>Conference Year:</strong> {{ rowData.conferenceyear || "-NA-"}}</p>
+        <p class="card-text"><strong>Bank Name:</strong> {{ rowData.bankname || "-NA-"}}</p>
+        <p class="card-text"><strong>Remote IP:</strong> {{ rowData.remoteip || "-NA-"}}</p>
+        <p class="card-text"><strong>Registration Number:</strong> {{ rowData.regno || "-NA-"}}</p>
+        <p class="card-text"><strong>Candidate Name:</strong> {{ rowData.candidatename || "-NA-"}}</p>
+        <p class="card-text"><strong>Name in Receipt:</strong> {{ rowData.nameinreceipt || "-NA-"}}</p>
+        <p class="card-text"><strong>Address 1:</strong> {{ rowData.address1 || "-NA-"}}</p>
+        <p class="card-text"><strong>Address 2:</strong> {{ rowData.address2 || "-NA-"}}</p>
+        <p class="card-text"><strong>City:</strong> {{ rowData.city || "-NA-"}}</p>
+        <p class="card-text"><strong>State:</strong> {{ rowData.state || "-NA-"}}</p>
+        <p class="card-text"><strong>Country:</strong> {{ rowData.country || "-NA-"}}</p>
+        <p class="card-text"><strong>Pincode:</strong> {{ rowData.pincode || "-NA-"}}</p>
+        <p class="card-text"><strong>Phone:</strong> {{ rowData.phone || "-NA-"}}</p>
+        <p class="card-text"><strong>Mobile:</strong> {{ rowData.mobile || "-NA-"}}</p>
+        <p class="card-text"><strong>Email:</strong> {{ rowData.email || "-NA-"}}</p>
+        <p class="card-text"><strong>Food Type:</strong> {{ rowData.foodtype || "-NA-"}}</p>
+        <p class="card-text"><strong>Participant Type:</strong> {{ rowData.participanttype || "-NA-"}}</p>
+        <p class="card-text"><strong>Practice Type:</strong> {{ rowData.practicetype || "-NA-"}}</p>
+        <p class="card-text"><strong>Accompany Members:</strong> {{ rowData.accompanymembers || "-NA-"}}</p>
+        <p class="card-text"><strong>Payment Amount:</strong> {{ rowData.paymentamount || "-NA-"}}</p>
+        <p class="card-text"><strong>Has GST:</strong> {{ rowData.hasgst || "-NA-"}}</p>
+        <p class="card-text"><strong>GST Number:</strong> {{ rowData.gstnumber || "-NA-"}}</p>
+        <p class="card-text"><strong>GST Mobile Number:</strong> {{ rowData.gstmobileno || "-NA-"}}</p>
+        <p class="card-text"><strong>GST Email ID:</strong> {{ rowData.gstemailid || "-NA-"}}</p>
+        <p class="card-text"><strong>To Wards:</strong> {{ rowData.toWards || "-NA-"}}</p>
+        <p class="card-text"><strong>Allow 80G:</strong> {{ rowData.allow80G || "-NA-"}}</p>
+        <p class="card-text"><strong>Pan Card Number:</strong> {{ rowData.panCardNo || "-NA-"}}</p>
+        <p class="card-text"><strong>GST Registration:</strong> {{ rowData.gstreg || "-NA-"}}</p>
+        <!-- Add any additional fields as needed -->
+
+
+        <p class="card-text"><strong>designation: </strong>: {{ rowData.inputvalue1 || "-NA-"}}</p>
+        <p class="card-text"><strong>placeOfWork: </strong>: {{ rowData.inputcaption2 || "-NA-"}}</p>
+        <p class="card-text"><strong>medicalCollegeName: </strong>: {{ rowData.inputvalue2 || "-NA-"}}</p>
+        <p class="card-text"><strong>hospitalName: </strong>: {{ rowData.inputcaption3 || "-NA-"}}</p>
+        <p class="card-text"><strong>istacMember: </strong>: {{ rowData.inputvalue3 || "-NA-"}}</p>
+        <p class="card-text"><strong>istacMemberID: </strong>: {{ rowData.inputcaption4 || "-NA-"}}</p>
+        <p class="card-text"><strong>registrationType: </strong>: {{ rowData.inputvalue4 || "-NA-"}}</p>
+        <p class="card-text"><strong>submitCase: </strong>: {{ rowData.inputcaption5 || "-NA-"}}</p>
+        <p class="card-text"><strong>isPaymentDone: </strong>: {{ rowData.inputcaption1 || "-NA-"}}</p>
+  
+
+
+        <p class="card-text"><strong>Response Transaction ID:</strong> {{ rowData.responseTransid || "-NA-"}}</p>
+        <p class="card-text"><strong>Response Result Code:</strong> {{ rowData.responseResultCode || "-NA-"}}</p>
+        <p class="card-text"><strong>Response Result:</strong> {{ rowData.responseResult || "-NA-"}}</p>
+        <p class="card-text"><strong>Response URL:</strong> {{ rowData.responseURL || "-NA-"}}</p>
+       
+
+        
+      </div>
+    </div>
+  </div>
+  

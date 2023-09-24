@@ -17,12 +17,15 @@ import { PasswordForgetComponent } from './password-forget/password-forget.compo
 import { SignupComponent } from './signup/signup.component';
 import { RegisterComponent } from './register/register.component';
 import { RegistrationStatusComponent } from './registration-status/registration-status.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RegistedListComponent } from './registed-list/registed-list.component';
+import { CandidateDetailsComponent } from './candidate-details/candidate-details.component';
+import { CheckStatusComponent } from './check-status/check-status.component';
 
 
 @NgModule({
-  declarations: [Index6Component, LoginComponent, PasswordForgetComponent, SignupComponent,RegisterComponent, RegistrationStatusComponent],
+  declarations: [Index6Component, LoginComponent, PasswordForgetComponent, SignupComponent,RegisterComponent, RegistrationStatusComponent,RegistedListComponent, CandidateDetailsComponent, CheckStatusComponent],
   
   imports: [
     CommonModule,
@@ -32,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgxTypedJsModule,
     NgParticlesModule,
     CarouselModule,
-    ReactiveFormsModule,HttpClientModule
+    ReactiveFormsModule,HttpClientModule,FormsModule
   ]
 
 })

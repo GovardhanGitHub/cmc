@@ -86,4 +86,9 @@ export class PricingComponent implements OnInit {
     console.log(event);
     this.router.navigate(["/register", event.id]);
   }
+
+  status(event) {
+    console.log(event);
+    this.router.navigate(["/check-status"]);
+  }
 }

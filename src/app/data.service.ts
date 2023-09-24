@@ -6,8 +6,9 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class DataService {
-  private url =
-    "https://clin.CMCVellore.ac.in/newconference/ConferencePay.asmx";
+  private url = "https://api.wrdpwd.com/soap/callWebService";
+  // private url =
+  //   "https://clin.CMCVellore.ac.in/newconference/ConferencePay.asmx";
   prod_cred = {
     userName: "UMRCETS",
     password: "us8FaGH5",
@@ -25,10 +26,29 @@ export class DataService {
   constructor(private httpClient: HttpClient) {}
 
   // Method to send the SOAP request
+  sendSOAPRequestForStatus(formData: any): Observable<any> {
+    const headers = new HttpHeaders({
+      "Content-Type": "application/soap+xml; charset=utf-8",
+      SOAPAction: "http://www.cmch-vellore.edu/CONFONLINEPAYSTATUS",
+    });
+
+    const soapBody = this.generateSOAPBodyForStatus(this.prod_cred, formData);
+
+    console.log(soapBody);
+
+    return this.httpClient.post(this.url, soapBody, {
+      headers,
+      responseType: "text",
+    });
+  }
+
+
+
+  // Method to send the SOAP request
   sendSOAPRequest(formData: any): Observable<any> {
     const headers = new HttpHeaders({
-      "Content-Type": "text/xml; charset=utf-8",
-      SOAPAction: "http://www.CMCh-Vellore.edu/NEWCONFONLINEPAYSAVE",
+      "Content-Type": "application/soap+xml; charset=utf-8",
+      SOAPAction: "http://www.cmch-vellore.edu/NEWCONFONLINEPAYSAVE",
     });
 
     const soapBody = this.generateSOAPBody(this.prod_cred, formData);
@@ -42,9 +62,31 @@ export class DataService {
   }
 
   // Generate the SOAP body from form data
+  private generateSOAPBodyForStatus(userDetails: any, formData: any): string {
+
+    const soapXML = `
+    <x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:www="http://www.cmch-vellore.edu/">
+      <x:Header>
+        <www:UserDetails>
+        <www:userName>${userDetails.userName}</www:userName>
+        <www:password>${userDetails.password}</www:password>
+        <www:program>${userDetails.program}</www:program>
+      </www:UserDetails>
+      </x:Header>
+      <x:Body>
+        <www:CONFONLINEPAYSTATUS>
+          ${this.generateFieldsXML(formData)}
+        </www:CONFONLINEPAYSTATUS>
+      </x:Body>
+    </x:Envelope>
+  `;
+
+    return soapXML;
+  }
+  // Generate the SOAP body from form data
   private generateSOAPBody(userDetails: any, formData: any): string {
     const soapXML = `
-    <x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:www="http://www.CMCh-Vellore.edu/">
+    <x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:www="http://www.cmch-vellore.edu/">
       <x:Header>
         <www:UserDetails>
         <www:userName>${userDetails.userName}</www:userName>
@@ -252,4 +294,91 @@ export class DataService {
       ],
     },
   ];
+
+  getAllConferenceData(): Observable<any> {
+    const url = "https://api.wrdpwd.com/soap/getAllConferenceData";
+    return this.httpClient.get(url);
+  }
+
+  // Create a method to send data via POST request
+  insertConferenceData(data: any): Observable<any> {
+    const url = "https://api.wrdpwd.com/soap/insertConferenceData";
+    // Define headers if needed (adjust as necessary)
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+    });
+
+    // Send the POST request
+    return this.httpClient.post(url, data, { headers });
+  }
+
+  // Create a method to send data via POST request
+  updateConferenceData(id, data: any): Observable<any> {
+    const url = "https://api.wrdpwd.com/soap/updateConferenceData/" + id;
+    // Define headers if needed (adjust as necessary)
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+    });
+
+    // Send the POST request
+    return this.httpClient.put(url, data, { headers });
+  }
+
+  partialUpdateConferenceData(id, data: any): Observable<any> {
+    const url = "https://api.wrdpwd.com/soap/partialUpdateConferenceData/" + id;
+    // Define headers if needed (adjust as necessary)
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+    });
+
+    // Send the POST request
+    return this.httpClient.patch(url, data, { headers });
+  }
+
+
+  getConferenceDataByRegno(id){
+    const url = "https://api.wrdpwd.com/soap/getConferenceDataByRegno/" + id;
+    // Define headers if needed (adjust as necessary)
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+    });
+
+    // Send the POST request
+    return this.httpClient.get(url,  { headers });
+  }
+  
+
+  getConferenceDataByPhone(id){
+    const url = "https://api.wrdpwd.com/soap/getConferenceDataByPhone/" + id;
+    // Define headers if needed (adjust as necessary)
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+    });
+
+    // Send the POST request
+    return this.httpClient.get(url,  { headers });
+  }
+
+
+  // Create a method to send data via POST request
+  deleteConferenceData(id): Observable<any> {
+    const url = "https://api.wrdpwd.com/soap/deleteConferenceData/" + id;
+    // Define headers if needed (adjust as necessary)
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+    });
+
+    // Send the POST request
+    return this.httpClient.delete(url,  { headers });
+  }
+
+
+}
+
+export class PaymentInfo {
+  Registration: string;
+  Transid: string;
+  ResultCode: string;
+  Result: string;
+  URL: string;
 }

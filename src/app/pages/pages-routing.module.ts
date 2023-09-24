@@ -9,6 +9,9 @@ import { PasswordForgetComponent } from './password-forget/password-forget.compo
 import { SignupComponent } from './signup/signup.component';
 import { RegisterComponent } from './register/register.component';
 import { RegistrationStatusComponent } from './registration-status/registration-status.component';
+import { RegistedListComponent } from './registed-list/registed-list.component';
+import { CandidateDetailsComponent } from './candidate-details/candidate-details.component';
+import { CheckStatusComponent } from './check-status/check-status.component';
 
 const routes: Routes = [
   
@@ -24,6 +27,16 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent
     },
+    {
+        path: 'check-status',
+        component: CheckStatusComponent
+    },
+    {
+        path: 'admin',
+        component: RegistedListComponent
+    },
+    { path: 'detail', component: CandidateDetailsComponent },
+
     {
         path: 'password_forget',
         component: PasswordForgetComponent

@@ -22,6 +22,7 @@
     "@nicky-lenaers/ngx-scroll-to": "^9.0.0",
     "@supabase/supabase-js": "^2.36.0",
     "bootstrap": "^5.0.1",
+    "file-saver": "^2.0.5",
     "ng-particles": "^2.1.11",
     "ngx-owl-carousel-o": "^5.0.0",
     "ngx-typed-js": "^2.0.2",
@@ -29,6 +30,7 @@
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "tsparticles": "^1.18.11",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

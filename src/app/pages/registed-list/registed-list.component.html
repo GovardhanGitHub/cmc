@@ -1,0 +1,87 @@
+<div class="container mt-3" *ngIf="!showTable">
+  <!-- Secret key input form -->
+  <div class="form-group">
+    <label for="secretKey">Enter Secret Key:</label>
+    <input
+      class="form-control"
+      type="password"
+      id="secretKey"
+      [(ngModel)]="secretKey"
+    />
+    <button (click)="checkSecretKey()">Submit</button>
+  </div>
+</div>
+
+<!-- Table - Display only if showTable is true -->
+<div class="row p-2" *ngIf="showTable">
+  <button class="btn btn-sm btn-success float-end" (click)="exportToExcel()">
+    Export to Excel
+  </button>
+
+  <div class="table-responsive">
+    <table class="table" id="myTable">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Registration Number</th>
+          <th>Transaction ID</th>
+          <th>Name in Receipt</th>
+          <!-- <th>Conference Code</th> -->
+          <th>Bank Name</th>
+          <th>Phone</th>
+          <!-- <th>Mobile</th> -->
+          <th>Email</th>
+          <!-- <th>Towards</th> -->
+          <th>Payment Amount</th>
+          <th>Payment Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let payment of payments">
+          <tr>
+            <td>{{ payment.id }}</td>
+            <td>{{ payment.regno }}</td>
+            <td>{{ payment.responseTransid }}</td>
+            <td>{{ payment.nameinreceipt }}</td>
+            <!-- <td>{{ payment.conferencecode }}</td> -->
+            <td>{{ payment.bankname }}</td>
+            <td>{{ payment.phone }}</td>
+            <!-- <td>{{ payment.mobile }}</td> -->
+            <td>{{ payment.email }}</td>
+            <!-- <td>{{ payment.registrationType }}</td> -->
+            <td>{{ payment.paymentamount }}</td>
+            <td>
+              <span
+                [ngClass]="{
+                  success: payment.inputcaption1 === 'Y',
+                  failed: payment.inputcaption1 === 'F',
+                  unknown:
+                    payment.inputcaption1 !== 'Y' &&
+                    payment.inputcaption1 !== 'F'
+                }"
+              >
+                {{
+                  payment.inputcaption1 === "Y"
+                    ? "Success"
+                    : payment.inputcaption1 === "F"
+                    ? "Failed"
+                    : "Unknown"
+                }}
+              </span>
+            </td>
+            <td >
+              <button class="mx-2" (click)="delete(payment.id)">
+                <i class="ti-trash"></i>
+              </button>
+
+              <button (click)="viewDetail(payment)">
+                <i class="ti-eye"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

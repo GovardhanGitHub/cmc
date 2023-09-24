@@ -2,11 +2,10 @@
 <section class="section bg-light" id="pricing">
   <div class="container">
     <div class="row justify-content-center text-center">
-
       <div class="col-lg-12">
         <!-- <img src="assets/images/cmc/logo-1.png"  style="max-width:10%;" alt="..." class="img-thumbnail mb-2" > -->
         <h6 class="title">
-          Events 
+          Events
           <!-- <span class="fw-bold"> Save the Day! </span> -->
         </h6>
         <!-- <p class="text-muted mt-3 title-subtitle mx-auto">It is a long established fact that a reader will
@@ -127,26 +126,35 @@
               </div>
             </div>
 
-            <button
-              (click)="register(event)"
-              class="btn btn-primary btn-round float-end"
-            >
-              Register
-            </button>
+            <p>
+              <button
+                (click)="register(event)"
+                class="btn btn-success btn-round float-end"
+              >
+                Register
+              </button>
+
+              <button
+                (click)="status(event)"
+                class="btn btn-info btn-round float-end me-3"
+              >
+                Registration Status
+              </button>
+            </p>
+
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <br>
+  <br />
   <div class="container my-2">
-
     <h1 class="my-2 fw-bold text-center">
-      <span class="text-primary ">Brouchers</span>
+      <span class="text-primary">Brouchers</span>
     </h1>
-   
-    <div class="row ">
+
+    <div class="row">
       <div class="col">
         <div class="card">
           <div class="card-body">
@@ -171,7 +179,7 @@
       </div>
     </div>
   </div>
-<br>
+  <br />
   <div class="container">
     <!-- <div class="row justify-content-center text-center">
     <div class="col-lg-12">
@@ -182,14 +190,14 @@
   </div> -->
 
     <div class="row">
-
       <div class="row justify-content-center text-center">
         <div class="col-lg-12">
           <!-- <i class="ti-user title-icon text-muted"></i> -->
-          <h3 class="title text-primary">meet Our <span class="fw-bold">Faculties</span></h3>
-        
+          <h3 class="title text-primary">
+            meet Our <span class="fw-bold">Faculties</span>
+          </h3>
         </div>
-      </div> 
+      </div>
 
       <ng-container *ngFor="let item of doctors; let i = index">
         <div class="col-lg-4">
@@ -208,8 +216,10 @@
             </div>
 
             <div class="team-name">
-              <p class="fw-bold mb-0 mt-4">  {{item.name}}</p>
-              <p class=" mb-0 mt-4"><span *ngIf="item.prof ">{{ item.prof }}, </span>  {{item.at}}</p>
+              <p class="fw-bold mb-0 mt-4">{{ item.name }}</p>
+              <p class="mb-0 mt-4">
+                <span *ngIf="item.prof">{{ item.prof }}, </span> {{ item.at }}
+              </p>
               <!-- <p class="text-muted mt-4">
                 {{ item.dept }}
               </p> -->

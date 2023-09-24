@@ -1,3 +1,5 @@
+
+
 <!-- STRAT NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark" id="navbar"
     (window:scroll)="windowScroll()">
@@ -38,7 +40,6 @@
                 </li>
 
 
-             
 
                 <li class="nav-item" [ngClass]="{'active':currentSection === 'services'}">
                     <a [ngxScrollTo]="'#services'" class="nav-link" href="javascript: void(0);">About us</a>
@@ -47,6 +48,11 @@
                 <li class="nav-item" [ngClass]="{'active':currentSection === 'contact'}">
                     <a [ngxScrollTo]="'#contact'" class="nav-link" href="javascript: void(0);">Contact</a>
                 </li>
+<!-- 
+                <li class="nav-item" >
+                    <a routerLink="/check-status"  class="nav-link" href="javascript: void(0);">Registration status</a>
+                </li> -->
+
             </ul>
             <div>
                 <ul class="text-right list-unstyled list-inline mb-0 nav-social">
