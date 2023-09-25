@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
       inputcaption4: ["", [Validators.maxLength(50)]], //   istacMemberID
       inputvalue4: ["", [Validators.maxLength(200)]], //   registrationType
       inputcaption5: ["", [Validators.maxLength(50)]], //   submitCase
-      inputvalue5: ["", [Validators.maxLength(200)]], //
+      inputvalue5: ["", [Validators.maxLength(200), Validators.required]], //
 
       isPaymentDone: ["N", Validators.required],
       designation: [""],
@@ -126,27 +126,42 @@ export class RegisterComponent implements OnInit {
   }
 
   calculateTotalPrice() {
-    const registrationType =
-      this.registrationForm.get("registrationType").value;
+    const registrationType = this.registrationForm.get('registrationType').value;
+    const isCmcStaff = this.registrationForm.get('inputvalue5').value;
 
-    if (registrationType === "Online") {
-      this.totalPrice = 500 + 0.18 * 500; // ₹ 500 + 18% GST
-    } else if (registrationType === "Symposium") {
-      this.totalPrice = 1000 + 0.18 * 1000; // ₹ 1000 + 18% GST
-    } else if (registrationType === "Workshop") {
-      this.totalPrice = 3500 + 0.18 * 3500; // ₹ 3500 + 18% GST
-    } else if (registrationType === "SymposiumAndWorkshop") {
-      this.totalPrice = 4500 + 0.18 * 4500; // ₹ 4500 + 18% GST
-    } else if (registrationType === "NA") {
-      this.totalPrice = 1; // TEST
+    if (isCmcStaff === 'CMCStaff') {
+      // Exclude GST for CMC Staff
+      if (registrationType === 'Online') {
+        this.totalPrice = 500;
+      } else if (registrationType === 'Symposium') {
+        this.totalPrice = 1000;
+      } else if (registrationType === 'Workshop') {
+        this.totalPrice = 3500;
+      } else if (registrationType === 'SymposiumAndWorkshop') {
+        this.totalPrice = 4500;
+      } else {
+        this.totalPrice = 0;
+      }
+    } else {
+      // Apply GST for External
+      if (registrationType === 'Online') {
+        this.totalPrice = 500 + (0.18 * 500); // ₹ 500 + 18% GST
+      } else if (registrationType === 'Symposium') {
+        this.totalPrice = 1000 + (0.18 * 1000); // ₹ 1000 + 18% GST
+      } else if (registrationType === 'Workshop') {
+        this.totalPrice = 3500 + (0.18 * 3500); // ₹ 3500 + 18% GST
+      } else if (registrationType === 'SymposiumAndWorkshop') {
+        this.totalPrice = 4500 + (0.18 * 4500); // ₹ 4500 + 18% GST
+      } else {
+        this.totalPrice = 0;
+      }
     }
-    else {
-      this.totalPrice = 0;
-    }
+  
 
     this.registrationForm.patchValue({
       paymentamount: this.totalPrice,
-      ToWards : registrationType
+      ToWards : registrationType,
+  
     });
   }
 
