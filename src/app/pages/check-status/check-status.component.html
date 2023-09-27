@@ -1,0 +1,147 @@
+<div class="row p-3">
+  <div class="col-6">
+    <div class="card mb-3">
+      <div class="card-header">Registration Info</div>
+      <div class="card-body">
+        <form [formGroup]="detailForm" (ngSubmit)="detailFormSubmit()">
+          <div class="form-group">
+            <label for="phone">Mobile Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="phone"
+              formControlName="phone"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="card" *ngIf="obj.id">
+      <div class="card-body">
+        <h5 class="card-title">Conference Information</h5>
+        <hr />
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>ID</th>
+              <td>{{ obj.id }}</td>
+            </tr>
+            <tr>
+              <th>Conference Code</th>
+              <td>{{ obj.conferencecode }}</td>
+            </tr>
+            <tr>
+              <th>Conference Year</th>
+              <td>{{ obj.conferenceyear }}</td>
+            </tr>
+            <tr>
+              <th>Bank Name</th>
+              <td>{{ obj.bankname }}</td>
+            </tr>
+            <tr>
+              <th>Registration Number</th>
+              <td>{{ obj.regno }}</td>
+            </tr>
+            <tr>
+              <th>Response Transaction ID</th>
+              <td>{{ obj.responseTransid }}</td>
+            </tr>
+            <tr>
+              <th>Name </th>
+              <td>{{ obj.nameinreceipt }}</td>
+            </tr>
+            <tr>
+              <th>Address</th>
+              <td>{{ obj.address1 }}</td>
+            </tr>
+            <tr>
+              <th>Phone</th>
+              <td>{{ obj.phone }}</td>
+            </tr>
+            <tr>
+              <th>Payment Status</th>
+              <td>{{ obj.inputcaption1 }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-header">Transaction Status</div>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="regno">Reg No</label>
+            <input
+              type="text"
+              class="form-control"
+              id="regno"
+              formControlName="regno"
+            />
+          </div>
+          <div class="form-group">
+            <label for="transid">Transaction ID</label>
+            <input
+              type="text"
+              class="form-control"
+              id="transid"
+              formControlName="transid"
+            />
+          </div>
+          <div class="form-group">
+            <label for="conference">Conference</label>
+            <input
+              type="text"
+              class="form-control"
+              id="conference"
+              formControlName="conference"
+            />
+          </div>
+          <div class="form-group">
+            <label for="confyear">Conference Year</label>
+            <input
+              type="text"
+              class="form-control"
+              id="confyear"
+              formControlName="confyear"
+            />
+          </div>
+          <div class="form-group">
+            <label for="bankname">Bank Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="bankname"
+              formControlName="bankname"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="card mt-3" *ngIf="status.Transid">
+      <div class="card-body">
+        <h5 class="card-title">Transaction Details</h5>
+        <hr />
+        <table class="table">
+          <tbody>
+            <!-- <tr>
+              <th>Property</th>
+              <th>Value</th>
+            </tr> -->
+            <tr *ngFor="let property of status | keyvalue">
+              <th>{{ property.key }}</th>
+              <td>{{ property.value }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

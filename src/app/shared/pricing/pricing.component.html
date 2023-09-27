@@ -1,0 +1,243 @@
+<!-- START PRICING -->
+<section class="section bg-light" id="pricing">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-12">
+        <!-- <img src="assets/images/cmc/logo-1.png"  style="max-width:10%;" alt="..." class="img-thumbnail mb-2" > -->
+        <h6 class="title">
+          Events
+          <!-- <span class="fw-bold"> Save the Day! </span> -->
+        </h6>
+        <!-- <p class="text-muted mt-3 title-subtitle mx-auto">It is a long established fact that a reader will
+                    be of a page when established fact looking at its layout.</p> -->
+      </div>
+    </div>
+
+    <div class="row mt-2" *ngFor="let event of events">
+      <div class="col-lg-12">
+        <div
+          class="bg-white price-box mt-3"
+          [ngClass]="{ active: event.isActive === true }"
+        >
+          <div class="row" style="align-items: center">
+            <div class="col-2">
+              <img
+                src="assets/images/cmc/logo-1.png"
+                alt="..."
+                class="img-thumbnail mb-2"
+              />
+            </div>
+            <div class="col-8">
+              <div class="plan-price fw-bold text-center">
+                <h1 class="mb-0 fw-bold">
+                  {{ event.subject }}
+                  <br />
+                  <span class="text-primary">{{ event.title }}</span>
+                </h1>
+                <!-- <p class="mb-0">(on {{event.date}})</p> -->
+              </div>
+            </div>
+            <div class="col-2">
+              <img
+                src="assets/images/cmc/logo-2.png"
+                alt="..."
+                class="img-thumbnail mb-2"
+              />
+            </div>
+          </div>
+
+          <div class="container-fluid plan-features text-muted mt-5 mb-5">
+            <div class="row mt-2" *ngFor="let event of events">
+              <div class="col-md-6">
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bolder">Venue</h5>
+                    <p
+                      class="card-text"
+                      *ngFor="let v of event.venue"
+                      class="mb-0"
+                    >
+                      <b class="text-primary"
+                        >{{ v.title }}
+                        <span *ngIf="v.date">on {{ v.date }}</span>
+                      </b>
+                      <span *ngIf="v.address">, {{ v.address }}</span>
+                      <span *ngIf="v.info"> - ({{ v.info }})</span>.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bolder">Highlights</h5>
+                    <p
+                      class="card-text mb-0 mx-2 text-capitalize"
+                      *ngFor="let o of event.highlights"
+                    >
+                      <span class="text-primary">* </span> {{ o }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bolder">Contact Information</h5>
+                    <p class="mb-0">Email: {{ event.email }}</p>
+                    <p>Phone: {{ event.phone }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 text-right">
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bolder">Date</h5>
+                    <p>{{ event.date }}</p>
+                  </div>
+                </div>
+
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bolder">
+                      Organizing Committee - Department of Trauma Surgery
+                    </h5>
+                    <p
+                      class="card-text mb-0 mx-2 text-capitalize"
+                      *ngFor="let o of event.orgnisers"
+                    >
+                      <span class="text-primary">* </span>{{ o }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bolder">Registration</h5>
+
+                    <p
+                      class="mb-0 font-italic mx-2"
+                      *ngFor="let fee of event.fee"
+                    >
+                      {{ fee.desc }}
+                    </p>
+
+                    <!-- <p class="mb-0"> Register at <a href="#">www.traumasurg.com</a></p> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              <button
+                (click)="register(event)"
+                class="btn btn-success btn-round float-end"
+              >
+                Register
+              </button>
+
+              <button
+                (click)="status(event)"
+                class="btn btn-info btn-round float-end me-3"
+              >
+                Registration Status
+              </button>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <div class="container my-2">
+    <h1 class="my-2 fw-bold text-center">
+      <span class="text-primary">Brochure</span>
+    </h1>
+
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <img
+              src="assets/images/cmc/s1.png"
+              alt="..."
+              class="img-thumbnail mb-2"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <img
+              src="assets/images/cmc/s2.png"
+              alt="..."
+              class="img-thumbnail mb-2"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="container">
+    <!-- <div class="row justify-content-center text-center">
+    <div class="col-lg-12">
+      <i class="ti-user title-icon text-muted"></i>
+      <h3 class="title">Our <span class="fw-bold">Faculties</span></h3>
+    
+    </div>
+  </div> -->
+
+    <div class="row">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-12">
+          <!-- <i class="ti-user title-icon text-muted"></i> -->
+          <h3 class="title text-primary">
+            meet Our <span class="fw-bold">Faculties</span>
+          </h3>
+        </div>
+      </div>
+
+      <ng-container *ngFor="let item of doctors; let i = index">
+        <div class="col-lg-4">
+          <div class="text-center bg-white team-box mt-3 p-5">
+            <div>
+              <img
+                style="max-width: 40%"
+                [src]="
+                  item.image
+                    ? 'assets/images/doctors/' + item.image
+                    : 'assets/images/doctor/pro-logo.png'
+                "
+                alt=""
+                class="img-fluid rounded-circle img-thumbnail mx-auto d-block"
+              />
+            </div>
+
+            <div class="team-name">
+              <p class="fw-bold mb-0 mt-4">{{ item.name }}</p>
+              <p class="mb-0 mt-4">
+                <span *ngIf="item.prof">{{ item.prof }}, </span> {{ item.at }}
+              </p>
+              <!-- <p class="text-muted mt-4">
+                {{ item.dept }}
+              </p> -->
+            </div>
+            <!-- <div class="">
+                    <ul class="list-inline team-social mt-4 mb-0">
+                        <li class="list-inline-item"><a href="#"><i class="ti-github"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="ti-skype"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                    </ul>
+                </div> -->
+          </div>
+        </div>
+        <!-- Start a new row after every fourth item -->
+        <div class="w-100" *ngIf="(i + 1) % 6 === 0"></div>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<!-- END PRICING -->
