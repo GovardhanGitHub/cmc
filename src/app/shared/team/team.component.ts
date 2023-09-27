@@ -18,11 +18,7 @@ export class TeamComponent implements OnInit {
     {
       image : 'sukria.png',
       name: "Dr. Sukria Nayak",
-<<<<<<< HEAD
       dept: "Professor & Head, Department of Trauma Surgery, CMC Vellore",
-=======
-      dept: "Head, Department of Trauma Surgery, CMC Vellore",
->>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
     },
 
     {
