@@ -125,18 +125,31 @@ export class DataService {
       code: "TSURCME",
       year: "2023",
       subject: "CME on ",
+<<<<<<< HEAD
       title: " Advance in Chest Trauma Management ACTraM 2023",
       date: "13 & 14, October - 2023",
+=======
+      title: " Advance in Chest Trauma Management",
+      date: "13 & 14 th, October - 2023",
+>>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
       venue: [
         {
           title: "Symposium (Hybrid/ In person) ",
           date: "13.10.2023",
+<<<<<<< HEAD
           address: "Conference Hall 7th floor, A-Block, CMC Vellore Ranipet Campus",
+=======
+          address: "Conference Hall 7th floor, CMC, Vellore Ranipet Campus",
+>>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
         },
         {
           title: "Cadaveric Workshop ",
           date: "14.10.2023",
+<<<<<<< HEAD
           address: "Antomy Dissection Hall, CMC Vellore Bagayam Campus",
+=======
+          address: "Antomy Dissection Hall, CMC, Vellore bagayam Campus",
+>>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
           info: "Limited seats & in person only",
         },
       ],
@@ -157,6 +170,7 @@ export class DataService {
       ],
 
       fee: [
+<<<<<<< HEAD
         { desc: "Online (ISTAC Members only) - ₹500*", cost: 500 },
         { desc: "Symposium (In-person)  - ₹1000*", cost: 1000 },
         { desc: "Workshop (Only)  - ₹3500*", cost: 3500 },
@@ -175,6 +189,24 @@ export class DataService {
           at: "Division of Trauma Surgery JPNATC, AIIMS New Delhi",
           id: 3,
           image: "3.jpg",
+=======
+        { desc: "Online (ISTAC Members only) - ₹500", cost: 500 },
+        { desc: "Symposium In-person  - ₹1000", cost: 1000 },
+        { desc: "Workshop (Only)  - ₹3500", cost: 3500 },
+        { desc: "Symposium & Workshop ₹4500 - (+18% GST)", cost: 5310 },
+      ],
+
+      phone: "04172 – 224627 ",
+      email: "traumasurg.academic@CMCVellore.ac.in",
+      isActive: true,
+      doctors: [
+        {
+          name: "Dr. Kajal Jain ",
+          prof: "Professor",
+          at: "Trauma Anaesthesia PGIMER, Chandigarh.",
+          id: 1,
+          image: "1.jpg",
+>>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
         },
         {
           name: "Dr. Subodh Kumar",
@@ -184,12 +216,20 @@ export class DataService {
           image: "2.jpg",
         },
         {
+<<<<<<< HEAD
           
           name: "Dr. Kajal Jain ",
           prof: "Professor",
           at: "Trauma Anaesthesia PGIMER, Chandigarh.",
           id: 1,
           image: "1.jpg",
+=======
+          name: "Dr. Amit Gupta",
+          prof: "Professor",
+          at: "Division of Trauma Surgery JPNATC, AIIMS New Delhi",
+          id: 3,
+          image: "3.jpg",
+>>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
         },
         {
           name: "Dr. Krishnan Raghavendran ",
@@ -205,6 +245,23 @@ export class DataService {
           image: "5.jpg",
         },
         {
+<<<<<<< HEAD
+=======
+          name: "Dr. Sukria Nayak",
+          prof: "Professor & Head",
+          at: " Department of Trauma Surgery, CMC Vellore",
+          id: 6,
+          image: "6.jpg",
+        },
+        {
+          name: "Dr. Vinay M Rao ",
+          prof: "Associate Professor",
+          at: "Department of Cardiothoracic, Surgery CMC Vellore",
+          id: 7,
+          image: "7.jpg",
+        },
+        {
+>>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
           name: "Dr. Niladri Banerjee",
           prof: "Assistant Professor",
           at: "Department of Surgery, AIIMS Jodhpur",
@@ -212,11 +269,61 @@ export class DataService {
           image: "8.jpg",
         },
         {
+<<<<<<< HEAD
           name: "Dr. Sukria Nayak",
           prof: "Professor & Head",
           at: " Department of Trauma Surgery, CMC Vellore",
           id: 6,
           image: "6.jpg",
+=======
+          name: "Dr. Santhosh R Benjamin",
+          prof: "Associate Professor",
+          at: "Department of Cardiothoracic, Surgery,CMC Vellore",
+          id: 9,
+          image: "9.jpg",
+        },
+        {
+          name: "Dr. Susheel Sudheesh",
+          prof: "Assistant Professor",
+          at: "Department of Anaesthesia, CMC Vellore",
+          id: 10,
+          image: "10.jpg",
+        },
+        {
+          name: "Dr. Kirthi Sathyakumar ",
+          prof: "Associate Professor",
+          at: "Emergency Radiology, CMC Vellore",
+          id: 11,
+          image: "11.jpg",
+        },
+        {
+          name: "Dr. Srujan Lam Sharma",
+          prof: "Assistant Professor",
+          at: "Department of Trauma Surgery, CMC Vellore",
+          id: 12,
+          image: "12.jpg",
+        },
+        {
+          name: "Dr. Vijayan P",
+          prof: "Associate Professor",
+          at: "Department of Trauma Surgery, CMC Vellore",
+          id: 13,
+          image: "13.jpg",
+        },
+        {
+          name: "Dr. Joses Dany James",
+          prof: "Assistant Professor",
+          at: "Department of Trauma Surgery, CMC Vellore",
+          id: 14,
+          image: "14.jpg",
+        },
+        {
+          name: "Dr. Vignesh Kumar",
+          prof: "Associate Professor",
+          at: "Department of General Surgery, PIMS, Puducherry",
+          id: 15,
+          image: "15.jpg",
+>>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
         },
         {
           name: "Dr. Ekta Rai",
@@ -227,7 +334,11 @@ export class DataService {
         },
         {
           name: "Dr.Madhu Andrew Philip",
+<<<<<<< HEAD
           at: "Prof & Head, Department of Cardiothoracic Surgery,CMC Vellore",
+=======
+          at: "Department of Cardiothoracic Surgery,CMC Vellore",
+>>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
           id: 17,
           image: "17.jpg",
         },
@@ -238,6 +349,7 @@ export class DataService {
           id: 18,
           image: "18.jpg",
         },
+<<<<<<< HEAD
         {
           name: "Dr. Susheel Sudheesh",
           prof: "Assistant Professor",
@@ -295,6 +407,8 @@ export class DataService {
           image: "15.jpg",
         },
 
+=======
+>>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
       ],
     },
   ];
