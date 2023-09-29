@@ -33,6 +33,8 @@
                   {{ event.subject }}
                   <br />
                   <span class="text-primary">{{ event.title }}</span>
+                  <br>
+                  <span>{{event.subTitle}}</span>
                 </h1>
                 <!-- <p class="mb-0">(on {{event.date}})</p> -->
               </div>
@@ -151,11 +153,7 @@
   <br />
   <div class="container my-2">
     <h1 class="my-2 fw-bold text-center">
-<<<<<<< HEAD
       <span class="text-primary">Brochure</span>
-=======
-      <span class="text-primary">Brouchers</span>
->>>>>>> ca15baa035d643e5f492e42514987e891e1c2eb9
     </h1>
 
     <div class="row">
@@ -208,7 +206,7 @@
           <div class="text-center bg-white team-box mt-3 p-5">
             <div>
               <img
-                style="max-width: 40%"
+                style=" width: 105px; height: 105px;"
                 [src]="
                   item.image
                     ? 'assets/images/doctors/' + item.image
