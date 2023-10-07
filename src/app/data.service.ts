@@ -125,7 +125,7 @@ export class DataService {
       code: "TSURCME",
       year: "2023",
       subject: "CME on ",
-      title: " Advance in Chest Trauma Management ",
+      title: " Advances in Chest Trauma Management ",
       subTitle : "ACTraM 2023",
       date: "13 & 14, October - 2023",
       venue: [
