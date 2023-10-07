@@ -264,7 +264,7 @@
             </div>
 
             <!-- City -->
-            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+            <!-- <div class="form-group mb-3" *ngIf="shouldDisplayElement">
               <label for="city">City:</label>
               <input
                 class="form-control"
@@ -278,10 +278,10 @@
                 class="error-message"
                 >Maximum length exceeded.</small
               >
-            </div>
+            </div> -->
 
             <!-- State -->
-            <div class="form-group mb-3" *ngIf="shouldDisplayElement">
+            <!-- <div class="form-group mb-3" *ngIf="shouldDisplayElement">
               <label for="state">State:</label>
               <input
                 class="form-control"
@@ -295,7 +295,7 @@
                 class="error-message"
                 >Maximum length exceeded.</small
               >
-            </div>
+            </div> -->
 
             <!-- Country -->
             <div class="form-group mb-3" *ngIf="shouldDisplayElement">
@@ -507,6 +507,48 @@
                 class="form-control"
                 id="istacMemberID"
                 formControlName="istacMemberID"
+              />
+            </div>
+
+
+
+            <div class="card p-2 mb-3">
+              <div class="form-group mb-3">
+                <label> CMC Mission:</label>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="cityYes"
+                    value="Yes"
+                    formControlName="city"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="cityNo"
+                    value="No"
+                    formControlName="city"
+                  />
+                  <label class="form-check-label"> No </label>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="form-group mb-3"
+              *ngIf="registrationForm.get('city').value === 'Yes'"
+            >
+              <label for="stateID">CMC Mission ID:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="stateID"
+                formControlName="state"
               />
             </div>
 

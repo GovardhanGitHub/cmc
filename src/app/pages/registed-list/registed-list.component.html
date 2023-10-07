@@ -29,9 +29,25 @@
           <!-- <th>Conference Code</th> -->
           <th>Bank Name</th>
           <th>Phone</th>
-          <!-- <th>Mobile</th> -->
+
+          <th>Designation</th>
+  
+          <th>Place of work</th>
+  
+          <th>Name of the hospital, college</th>
+  
+          <th>ISTAC member</th>
+          <th>CMC Mission</th>
+  
+          <th>External or CMC staff</th>
+  
+          <th>registration type</th>
+  
+          <th>submit case</th>
+         
+
           <th>Email</th>
-          <!-- <th>Towards</th> -->
+         
           <th>Payment Amount</th>
           <th>Payment Status</th>
           <th>Actions</th>
@@ -40,17 +56,37 @@
       <tbody>
         <ng-container *ngFor="let payment of payments">
           <tr>
-            <td>{{ payment.id }}</td>
-            <td>{{ payment.regno }}</td>
-            <td>{{ payment.responseTransid }}</td>
-            <td>{{ payment.nameinreceipt }}</td>
-            <!-- <td>{{ payment.conferencecode }}</td> -->
-            <td>{{ payment.bankname }}</td>
-            <td>{{ payment.phone }}</td>
-            <!-- <td>{{ payment.mobile }}</td> -->
-            <td>{{ payment.email }}</td>
-            <!-- <td>{{ payment.registrationType }}</td> -->
-            <td>{{ payment.paymentamount }}</td>
+            <td>{{ payment.id  || "NA"}}</td>
+            <td>{{ payment.regno  || "NA"}}</td>
+            <td>{{ payment.responseTransid || payment.Transid  || "NA"}}</td>
+            <td>{{ payment.nameinreceipt  || "NA"}}</td>
+            <!-- <td>{{ payment.conferencecode  || "NA"}}</td> -->
+            <td>{{ payment.bankname  || "NA"}}</td>
+            <td>{{ payment.phone  || "NA"}}</td>
+
+            <td>{{  payment.inputvalue1  || "NA"}}</td>
+            
+            <td>{{  payment.inputcaption2  || "NA"}}</td>
+            
+            <td>
+              <span *ngIf=" payment.inputcaption3">{{  payment.inputcaption3  }}</span
+              ><span *ngIf=" payment.inputvalue2">{{  payment.inputvalue2  }}</span>
+            </td>
+            
+            <td>{{ payment.inputvalue3 || "NA"}}</td>
+            <td>{{ payment.city || "NA"}}</td>
+            
+            <td>{{payment.inputvalue5 == 'No Error' ?	"NA" :  payment.inputvalue5}}</td>
+
+
+            
+            <td>{{payment.inputvalue4 || "NA"}}</td>
+            
+            <td>{{ payment.inputcaption5 || "NA"}}</td>
+            
+
+            <td>{{ payment.email  || "NA"}}</td>
+            <td>{{ payment.paymentamount  || "NA"}}</td>
             <td>
               <span
                 [ngClass]="{
@@ -70,10 +106,10 @@
                 }}
               </span>
             </td>
-            <td >
-              <button class="mx-2" (click)="delete(payment.id)">
+            <td>
+              <!-- <button class="mx-2" (click)="delete(payment.id)">
                 <i class="ti-trash"></i>
-              </button>
+              </button> -->
 
               <button (click)="viewDetail(payment)">
                 <i class="ti-eye"></i>

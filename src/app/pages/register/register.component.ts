@@ -45,8 +45,8 @@ export class RegisterComponent implements OnInit {
       nameinreceipt: ["", [Validators.required, Validators.maxLength(150)]],
       address1: ["", [Validators.maxLength(200)]],
       address2: ["", [Validators.maxLength(200)]],
-      city: ["", [Validators.maxLength(100)]],
-      state: ["", [Validators.maxLength(100)]],
+      city: ["", [Validators.maxLength(100)]], //      CMC Mission
+      state: ["12345", [Validators.maxLength(100)]], //    CMC Mission ID
       country: ["", [Validators.maxLength(100)]],
       pincode: ["", [Validators.maxLength(10)]],
       phone: ["", [Validators.required, Validators.maxLength(20)]],
@@ -63,6 +63,7 @@ export class RegisterComponent implements OnInit {
       hasgst: ["N", [Validators.required]],
       GSTReg: [""],
       gstnumber: ["", [Validators.maxLength(20)]],
+
       gstmobileno: ["", [Validators.maxLength(12)]],
       gstemailid: ["", [Validators.maxLength(100)]],
 
@@ -75,7 +76,7 @@ export class RegisterComponent implements OnInit {
       inputcaption4: ["", [Validators.maxLength(50)]], //   istacMemberID
       inputvalue4: ["", [Validators.maxLength(200)]], //   registrationType
       inputcaption5: ["", [Validators.maxLength(50)]], //   submitCase
-      inputvalue5: ["", [Validators.maxLength(200), Validators.required]], //
+      inputvalue5: ["", [Validators.maxLength(200), Validators.required]], // External or CMC staff
 
       isPaymentDone: ["N", Validators.required],
       designation: [""],
@@ -92,7 +93,7 @@ export class RegisterComponent implements OnInit {
     this.registrationForm.patchValue({
       conferencecode: this.event.code,
       conferenceyear: this.event.year,
-      regno: this.generateRandomHash(7),
+      regno: this.generateRandomHash(9),
       Allow80G: "N",
       hasgst: "N",
     });
@@ -114,7 +115,7 @@ export class RegisterComponent implements OnInit {
   }
 
   generateRandomHash(length: number): string {
-    const characters = "0123456789";
+    const characters = "012345G0VARDHAN6789";
     let randomHash = "";
 
     for (let i = 0; i < length; i++) {
@@ -126,42 +127,41 @@ export class RegisterComponent implements OnInit {
   }
 
   calculateTotalPrice() {
-    const registrationType = this.registrationForm.get('registrationType').value;
-    const isCmcStaff = this.registrationForm.get('inputvalue5').value;
+    const registrationType =
+      this.registrationForm.get("registrationType").value;
+    const isCmcStaff = this.registrationForm.get("inputvalue5").value;
 
-    if (isCmcStaff === 'CMCStaff') {
+    if (isCmcStaff === "CMCStaff") {
       // Exclude GST for CMC Staff
-      if (registrationType === 'Online') {
+      if (registrationType === "Online") {
         this.totalPrice = 500;
-      } else if (registrationType === 'Symposium') {
+      } else if (registrationType === "Symposium") {
         this.totalPrice = 1000;
-      } else if (registrationType === 'Workshop') {
+      } else if (registrationType === "Workshop") {
         this.totalPrice = 3500;
-      } else if (registrationType === 'SymposiumAndWorkshop') {
+      } else if (registrationType === "SymposiumAndWorkshop") {
         this.totalPrice = 4500;
       } else {
         this.totalPrice = 0;
       }
     } else {
       // Apply GST for External
-      if (registrationType === 'Online') {
-        this.totalPrice = 500 + (0.18 * 500); // ₹ 500 + 18% GST
-      } else if (registrationType === 'Symposium') {
-        this.totalPrice = 1000 + (0.18 * 1000); // ₹ 1000 + 18% GST
-      } else if (registrationType === 'Workshop') {
-        this.totalPrice = 3500 + (0.18 * 3500); // ₹ 3500 + 18% GST
-      } else if (registrationType === 'SymposiumAndWorkshop') {
-        this.totalPrice = 4500 + (0.18 * 4500); // ₹ 4500 + 18% GST
+      if (registrationType === "Online") {
+        this.totalPrice = 500 + 0.18 * 500; // ₹ 500 + 18% GST
+      } else if (registrationType === "Symposium") {
+        this.totalPrice = 1000 + 0.18 * 1000; // ₹ 1000 + 18% GST
+      } else if (registrationType === "Workshop") {
+        this.totalPrice = 3500 + 0.18 * 3500; // ₹ 3500 + 18% GST
+      } else if (registrationType === "SymposiumAndWorkshop") {
+        this.totalPrice = 4500 + 0.18 * 4500; // ₹ 4500 + 18% GST
       } else {
         this.totalPrice = 0;
       }
     }
-  
 
     this.registrationForm.patchValue({
       paymentamount: this.totalPrice,
-      ToWards : registrationType,
-  
+      ToWards: registrationType,
     });
   }
 
@@ -187,8 +187,6 @@ export class RegisterComponent implements OnInit {
     return invalidFields;
   }
 
- 
-
   onSubmit() {
     const formData = this.registrationForm.value;
 
@@ -204,6 +202,7 @@ export class RegisterComponent implements OnInit {
       // (formData.candidatename = formData.nameinreceipt);
 
       console.log("formData ", formData);
+      
     setTimeout(() => {
       if (this.registrationForm.valid) {
         if (this.confirmData()) this.sendSOAPRequest(formData);

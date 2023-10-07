@@ -158,11 +158,11 @@ export class DataService {
       ],
 
       fee: [
-        { desc: "Online (ISTAC Members only) - ₹500*", cost: 500 },
-        { desc: "Symposium (In-person)  - ₹1000*", cost: 1000 },
-        { desc: "Workshop (Only)  - ₹3500*", cost: 3500 },
-        { desc: "Symposium & Workshop ₹4500*", cost: 5310 },
-        { desc: "(+18% GST)*", cost: 5310 },
+        { desc: "Online (ISTAC Members only) - ₹500", cost: 500 },
+        { desc: "Symposium (In-person)  - ₹1000", cost: 1000 },
+        { desc: "Workshop (Only)  - ₹3500", cost: 3500 },
+        { desc: "Symposium & Workshop ₹4500", cost: 5310 },
+        { desc: "* (+18% GST)", cost: 5310 },
         
       ],
 

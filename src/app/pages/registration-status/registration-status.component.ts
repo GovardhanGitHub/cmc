@@ -29,8 +29,8 @@ export class RegistrationStatusComponent implements OnInit {
       this.route.snapshot.queryParamMap.get("status");
     this.queryParams.responseTransid =
       this.route.snapshot.queryParamMap.get("transid");
-    this.queryParams.inputvalue5 =
-      this.route.snapshot.queryParamMap.get("message");
+    // this.queryParams.inputvalue5 =
+    //   this.route.snapshot.queryParamMap.get("message");
 
     if (this.queryParams.inputcaption1 == "Y") {
       this.dataService
